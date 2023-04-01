@@ -4,6 +4,8 @@ const express = require("express")
 
 
 router.post("/add", studentController.addStudent )
+router.get("/getStudents" , studentController.getAllStudents)
+
 
 
 
