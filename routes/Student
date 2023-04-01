@@ -4,7 +4,7 @@ const express = require("express")
 
 
 router.post("/add", studentController.addStudent )
-
+router.get("/getStudentID/:id" , studentController.getStudentById)
 
 
 
