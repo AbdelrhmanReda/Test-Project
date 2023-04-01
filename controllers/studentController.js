@@ -26,6 +26,13 @@ let addStudent = async (req, res) => {
   }
 };
 
+// get student by ID
+let getStudentById = async (req, res) => {
+  let std = await model.findById(req.params.id);
+  // console.log(std);
+  res.send(std)
+};
+
 
 module.exports = {
   addStudent
