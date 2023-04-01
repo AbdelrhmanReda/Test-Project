@@ -35,5 +35,6 @@ let getStudentById = async (req, res) => {
 
 
 module.exports = {
-  addStudent
+  addStudent,
+  getStudentById
 };
