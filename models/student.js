@@ -20,7 +20,7 @@ const schema = mongoose.Schema({
       },
     },
   },
-  sName: { type: String, required: true, unique: true },
+  sName: { type: String, required: true},
   phone1: { type: Number, required: true, unique: true, manLength: 11 },
   phone2: { type: Number, required: true, unique: true, manLength: 11 },
   fees: { type: Boolean },
