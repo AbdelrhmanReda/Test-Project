@@ -25,8 +25,14 @@ let addStudent = async (req, res) => {
     }
   }
 };
+let deleteStudent = async (req, res) => {
+  let std = await model.findOneAndRemove(req.params.id);
+  if (!std) res.status(404).send("Not deleted");
+  res.send(std);
+}
 
 
 module.exports = {
-  addStudent
+  addStudent,
+  deleteStudent
 };
