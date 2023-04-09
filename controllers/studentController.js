@@ -38,9 +38,15 @@ let getStudentById = async (req, res) => {
   res.send(std)
 };
 
+let getAllStudents = async (req, res) => {
+  let std = await model.find({});
+  res.send(std)
+};
+
 
 module.exports = {
   addStudent,
   deleteStudent,
-  getStudentById
+  getStudentById,
+  getAllStudents
 };
