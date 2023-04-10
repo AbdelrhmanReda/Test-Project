@@ -25,12 +25,6 @@ let addStudent = async (req, res) => {
     }
   }
 };
-let deleteStudent = async (req, res) => {
-  let std = await model.findOneAndRemove(req.params.id);
-  if (!std) res.status(404).send("Not deleted");
-  res.send(std);
-}
-
 // get student by ID
 let getStudentById = async (req, res) => {
   let std = await model.findById(req.params.id);
@@ -43,10 +37,23 @@ let getAllStudents = async (req, res) => {
   res.send(std)
 };
 
+let updateStudent = async (req, res) => {
+  let std = await model.findOneAndUpdate(req.params.id, req.body, {
+    returnOriginal: false,
+  });
+  res.send(req.body)
+};
+let deleteStudent = async (req, res) => {
+  let std = await model.findOneAndRemove(req.params.id);
+  if (!std) res.status(404).send("Not deleted");
+  res.send(std);
+}
+
 
 module.exports = {
   addStudent,
-  deleteStudent,
   getStudentById,
-  getAllStudents
+  getAllStudents,
+  updateStudent,
+  deleteStudent
 };
