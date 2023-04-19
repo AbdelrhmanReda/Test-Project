@@ -27,8 +27,15 @@ let addProf = async (req, res) => {
   }
 };
 
+let getProfById = async (req, res) => {
+  let prof = await model.findById(req.params.id);
+    res.send(prof)
+    // console.log(prof)
+};
+
 
 
 module.exports = {
-  addProf
+  addProf,
+  getProfById
 };
