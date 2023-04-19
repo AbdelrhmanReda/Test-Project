@@ -54,7 +54,6 @@ let getProfById = async (req, res) => {
 
 module.exports = {
   addProf,
-  updateProf,
   deleteProf,
   getProfById
 };
