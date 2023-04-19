@@ -27,13 +27,6 @@ let addProf = async (req, res) => {
   }
 };
 
-let updateProf = async(req,res)=>{
-  let prof = await model.findOneAndUpdate(req.params.id, req.body, {
-    returnOriginal: false,
-  });
-  res.send(req.body)
-}
-
 let deleteProf = async (req, res) => {
   try{
   let prof = await model.findOneAndRemove(req.params.id);
