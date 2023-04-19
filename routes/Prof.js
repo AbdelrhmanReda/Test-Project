@@ -6,12 +6,10 @@ const express = require("express"),
   profMW = require("../middlewares/profMW"),
   jwt = require("jsonwebtoken"),
   config = require("config");
-      
-  router.get("/getProfbyId/:id", profMW, profController.getProfById);
 
-
-
-
+router.post("/addPF", authMW, profController.addProf);
+router.get("/getProfbyId/:id", profMW, profController.getProfById);
+router.delete("/deleteProf/:id", authMW, profController.deleteProf);
 
 router.post("/signInProf", async (req, res) => {
   try {
@@ -36,6 +34,4 @@ router.post("/signInProf", async (req, res) => {
   }
 });
 
-
 module.exports = router;
-    

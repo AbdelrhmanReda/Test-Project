@@ -27,15 +27,34 @@ let addProf = async (req, res) => {
   }
 };
 
+let updateProf = async(req,res)=>{
+  let prof = await model.findOneAndUpdate(req.params.id, req.body, {
+    returnOriginal: false,
+  });
+  res.send(req.body)
+}
+
+let deleteProf = async (req, res) => {
+  try{
+  let prof = await model.findOneAndRemove(req.params.id);
+  if (!prof) res.status(404).send("Not deleted");
+  res.send(std);
+}
+  catch(err){
+    for (let e in err.errors) {
+      console.log(err.errors[e].message);
+      res.send("Bad Request");
+  }
+}}
 let getProfById = async (req, res) => {
   let prof = await model.findById(req.params.id);
     res.send(prof)
     // console.log(prof)
 };
 
-
-
 module.exports = {
   addProf,
+  updateProf,
+  deleteProf,
   getProfById
 };
