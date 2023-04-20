@@ -6,6 +6,8 @@ const express = require("express"),
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/", studentRouter);
+app.use("/", pfRouter);
+app.use("/admin", adminRouter);
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}...`);
