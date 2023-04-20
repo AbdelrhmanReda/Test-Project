@@ -8,6 +8,7 @@ const express = require("express"),
   config = require("config");
 
 router.post("/addPF", authMW, profController.addProf);
+router.post("/updatePF/:id", authMW, profController.updateProf);
 router.get("/getProfbyId/:id", profMW, profController.getProfById);
 router.delete("/deleteProf/:id", authMW, profController.deleteProf);
 
